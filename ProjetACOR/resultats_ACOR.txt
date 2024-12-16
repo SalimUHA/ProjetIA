@@ -1,0 +1,2 @@
+Dimension	Best Fitness
+10	13.5268

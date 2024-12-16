@@ -1,8 +1,9 @@
 
 #include <iostream>
 #include "ACOR.h"
+#include <fstream>
 
-//Rosenbrock function
+
 double rosenbrock(const std::vector<double>& x) {
     double sum = 0.0;
     for (size_t i = 0; i < x.size() - 1; ++i) {
@@ -12,7 +13,7 @@ double rosenbrock(const std::vector<double>& x) {
     return sum;
 }
 
-//Rastrigin function
+
 double rastrigin(const std::vector<double>& x) {
     size_t n = x.size();
     double A = 10.0;
@@ -26,7 +27,7 @@ double rastrigin(const std::vector<double>& x) {
 }
 
 
-//Ackley function
+
 double ackley(const std::vector<double>& x) {
     const double M_E = std::exp(1.0);
 
@@ -42,7 +43,7 @@ double ackley(const std::vector<double>& x) {
     return -20.0 * exp(-0.2 * sqrt(sum1 / n)) - exp(sum2 / n) + 20.0 + M_E;
 }
 
-//schwefel function
+
 double schwefel(const std::vector<double>& x) {
     double sum = 0.0;
 
@@ -50,7 +51,7 @@ double schwefel(const std::vector<double>& x) {
         sum += x[i] * sin(sqrt(fabs(x[i])));
     }
 
-    return -sum; // Minimization problem, so negating the result.
+    return -sum;
 }
 
 #include <cmath>
@@ -58,8 +59,24 @@ double schwefel(const std::vector<double>& x) {
 
 int main()
 {
-	Problem* p = new Problem{30,-5.12,5.12,schwefel,"min"};
+    int dimension = 10;
+	Problem* p = new Problem{dimension,-5.12,5.12,schwefel,"min"};
 	OriginalACOR acor(10000, 30, 20, 0.5, 1.0);
 	Agent g_best = acor.solve(p);
+
+	 std::ofstream results_file("resultats_ACOR.txt");
+    if (!results_file.is_open())
+    {
+        std::cout << "Erreur : impossible d'ouvrir le fichier pour ecrire les résultats." << std::endl;
+        return 1;
+    }
+
+    results_file << "Dimension\tBest Fitness\n";
+    results_file << dimension<<"\t";
+    results_file << g_best.getfitness();
+    results_file << '\n';
+
 	std::cout << g_best.getfitness();
+
+
 }
