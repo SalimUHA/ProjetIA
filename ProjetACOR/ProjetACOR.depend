@@ -1,6 +1,8 @@
 # depslib dependency file v1.0
-1584205420 source:u:\l3\ia\acor\aco\projetia\projetacor\main.cpp
+1734344466 source:u:\l3\ia\acor\aco\projetia\projetacor\main.cpp
 	<iostream>
+	"ACOR.h"
+	<cmath>
 
 1734343608 source:u:\l3\ia\acor\aco\projetia\projetacor\src\agent.cpp
 	"Agent.h"
@@ -19,4 +21,12 @@
 	<vector>
 	<random>
 	<algorithm>
+
+1734344344 u:\l3\ia\acor\aco\projetia\projetacor\include\acor.h
+	"Agent.h"
+	"Problem.h"
+	<vector>
+	<numeric>
+	<algorithm>
+	<chrono>
 
