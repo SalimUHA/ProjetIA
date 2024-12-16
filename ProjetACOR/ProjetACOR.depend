@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1584205420 source:u:\l3\ia\acor\aco\projetia\projetacor\main.cpp
+	<iostream>
+
+1734343608 source:u:\l3\ia\acor\aco\projetia\projetacor\src\agent.cpp
+	"Agent.h"
+
+1734343574 u:\l3\ia\acor\aco\projetia\projetacor\include\agent.h
+	<vector>
+	<iostream>
+
+1734343946 source:u:\l3\ia\acor\aco\projetia\projetacor\src\problem.cpp
+	"Problem.h"
+	<windows.h>
+
+1734343909 u:\l3\ia\acor\aco\projetia\projetacor\include\problem.h
+	<iostream>
+	<functional>
+	<vector>
+	<random>
+	<algorithm>
+
