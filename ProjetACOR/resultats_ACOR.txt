@@ -1,2 +1,2 @@
 Dimension	Best Fitness
-10	13.5268
+10	         13.5268

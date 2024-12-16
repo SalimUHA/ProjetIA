@@ -2,7 +2,7 @@
 #include <iostream>
 #include "ACOR.h"
 #include <fstream>
-
+#include <cmath>
 
 double rosenbrock(const std::vector<double>& x) {
     double sum = 0.0;
@@ -54,14 +54,14 @@ double schwefel(const std::vector<double>& x) {
     return -sum;
 }
 
-#include <cmath>
+
 
 
 int main()
 {
     int dimension = 10;
 	Problem* p = new Problem{dimension,-5.12,5.12,schwefel,"min"};
-	OriginalACOR acor(10000, 30, 20, 0.5, 1.0);
+	OriginalACOR acor(100000, 30, 20, 0.5, 1.0);
 	Agent g_best = acor.solve(p);
 
 	 std::ofstream results_file("resultats_ACOR.txt");
@@ -72,7 +72,7 @@ int main()
     }
 
     results_file << "Dimension\tBest Fitness\n";
-    results_file << dimension<<"\t";
+    results_file << dimension<<"\t         ";
     results_file << g_best.getfitness();
     results_file << '\n';
 
